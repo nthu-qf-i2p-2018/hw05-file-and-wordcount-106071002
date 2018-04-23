@@ -3,6 +3,7 @@ from collections import Counter
 import csv
 import json
 import string
+import pickle
 def main(filename):
     # read file into lines
     txtfile = open(filename)
@@ -46,9 +47,12 @@ def main(filename):
     with open('wordcount.json','w',newline='') as json_file:
         json.dump(counter,json_file)
         json_file.close()
-
+    p=open('wordcount.pkl','wb')
+    pickle.dump(counter,p)
+    p.close()
     # BONUS: dump to a pickle file named "wordcount.pkl"
     # hint: dump the Counter object directly
+    
 
 
 if __name__ == '__main__':
